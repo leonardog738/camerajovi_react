@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply box-border; }
+  html { @apply scroll-smooth bg-ink; }
+  body { @apply m-0 min-w-80 overflow-x-hidden bg-ink font-sans font-light text-paper antialiased; }
+  ::selection { @apply bg-accent text-white; }
+}
+
+@layer components {
+  .section-shell { @apply mx-auto max-w-[1440px] scroll-mt-20 px-5 py-16 sm:px-8 lg:px-12 lg:py-28 xl:py-36; }
+  .eyebrow { @apply mb-6 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[.2em] text-accent before:h-px before:w-8 before:bg-accent; }
+  .form-control { @apply min-h-12 w-full rounded-lg border border-blue-300/10 bg-white/[.03] px-4 py-3 text-base text-paper placeholder:text-paper/25 transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30; }
+  .grid-bg {
+    background-image:
+      radial-gradient(circle at 90% 10%, rgba(59, 130, 246, .14), transparent 34%),
+      linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+    background-size: auto, 80px 80px, 80px 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
